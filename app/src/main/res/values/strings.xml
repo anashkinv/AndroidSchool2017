@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">AndroidSchool2017</string>
+    <string name="app_name">СriptoCourse</string>
+    <string name="loading_text">Loading</string>
 </resources>
