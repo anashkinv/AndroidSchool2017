@@ -11,7 +11,21 @@ public class LoadingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
 
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
+        Thread welcomeThread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    super.run();
+                    sleep(1000);
+                } catch (Exception e) {
+
+                } finally {
+
+                    startActivity(new Intent(LoadingActivity.this, ListActivity.class));
+                    finish();
+                }
+            }
+        };
+        welcomeThread.start();
     }
 }
