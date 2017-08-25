@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coin_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="12dp"
+    android:paddingTop="12dp">
+
+    <ImageView
+        android:id="@+id/coin_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="16dp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/coin_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="8sp"
+            android:textColor="#de000000"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            tools:text="Название валюты" />
+
+        <TextView
+            android:id="@+id/coin_abbr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/coin_name"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="6sp"
+            android:textColor="#8b000000"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            tools:text="Аббревиатура" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/chevron_right" />
+    </RelativeLayout>
+</LinearLayout>
