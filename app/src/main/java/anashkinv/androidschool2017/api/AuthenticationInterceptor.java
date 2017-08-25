@@ -15,10 +15,7 @@ class AuthenticationInterceptor implements Interceptor {
     public Response intercept(@NonNull Chain chain) throws IOException {
         Request original = chain.request();
         HttpUrl originalHttpUrl = original.url();
-
         HttpUrl url = originalHttpUrl.newBuilder().build();
-
-        // Request customization: add request headers
         Request.Builder requestBuilder = original.newBuilder().url(url);
 
         Request request = requestBuilder.build();

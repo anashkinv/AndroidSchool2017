@@ -45,6 +45,9 @@ dependencies {
     //  Logging-interceptor - позволяет логировать информацию о запросах и ответах на них
     compile 'com.squareup.okhttp3:logging-interceptor:3.8.1'
 
+    //  Библиотека для отображения графиков
+    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+
     //  Picasso - библиотека для загрузки изображений из интернета по url
     compile 'com.squareup.picasso:picasso:2.5.2'
 

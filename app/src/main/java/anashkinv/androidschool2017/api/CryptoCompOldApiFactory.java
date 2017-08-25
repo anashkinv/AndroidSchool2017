@@ -6,9 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import anashkinv.androidschool2017.api.Deserializer.CoinListDeserializer;
-import anashkinv.androidschool2017.api.Deserializer.PriceDeserializer;
 import anashkinv.androidschool2017.model.CoinList;
-import anashkinv.androidschool2017.model.Price;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

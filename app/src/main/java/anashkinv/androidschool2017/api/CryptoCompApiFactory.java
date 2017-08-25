@@ -5,7 +5,9 @@ import android.support.annotation.NonNull;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import anashkinv.androidschool2017.api.Deserializer.DayPriceDeserializer;
 import anashkinv.androidschool2017.api.Deserializer.PriceDeserializer;
+import anashkinv.androidschool2017.model.DayPrice;
 import anashkinv.androidschool2017.model.Price;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -26,6 +28,7 @@ public final class CryptoCompApiFactory {
         if (sRetrofit == null) {
             Gson gson = (new GsonBuilder())
                     .registerTypeAdapter(Price.class, new PriceDeserializer())
+                    .registerTypeAdapter(DayPrice.class, new DayPriceDeserializer())
                     .create();
 
             sRetrofit = new Retrofit.Builder()

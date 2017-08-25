@@ -18,7 +18,7 @@ import anashkinv.androidschool2017.api.CryptoCompOldApiFactory;
 import anashkinv.androidschool2017.api.CryptoCompOldService;
 import anashkinv.androidschool2017.model.Coin;
 import anashkinv.androidschool2017.model.CoinList;
-import anashkinv.androidschool2017.recycleview.CoinAdapter;
+import anashkinv.androidschool2017.helpers.CoinAdapter;
 import butterknife.BindDrawable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,36 +56,26 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void getCoinList() {
-        // Создаем экземпляр запроса со всем необходимыми настройками
         Call<CoinList> call = cryptoService.getCoinList();
 
-        // Отображаем progress bar
         loadingDialog.show();
-
-        // Выполняем запрос асинхронно
         call.enqueue(new Callback<CoinList>() {
 
-            // В случае если запрос выполнился успешно, то мы переходим в метод onResponse(...)
             @Override
             public void onResponse(@NonNull Call<CoinList> call, @NonNull Response<CoinList> response) {
                 if (response.isSuccessful()) {
-                    // Если в ответ нам пришел код 2xx, то отображаем содержимое запроса
                     fillCoinInfo(response.body().getCoinList());
 
                 } else {
                     System.out.println(response);
-                    // Если пришел код ошибки, то обрабатываем её
                     Toast.makeText(ListActivity.this, R.string.network_error, Toast.LENGTH_SHORT).show();
                 }
 
-                // Скрываем progress bar
                 loadingDialog.dismiss();
             }
 
-            // Если запрос не удалось выполнить, например, на телефоне отсутствует подключение к интернету
             @Override
             public void onFailure(@NonNull Call<CoinList> call, @NonNull Throwable t) {
-                // Скрываем progress bar
                 loadingDialog.dismiss();
 
                 Toast.makeText(ListActivity.this, R.string.network_error, Toast.LENGTH_SHORT).show();
@@ -95,7 +85,6 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void fillCoinInfo(ArrayList<Coin> coinList) {
-        // Создаём и задаём адаптер данных
         coinListView.setAdapter(new CoinAdapter((List) coinList));
     }
 }
